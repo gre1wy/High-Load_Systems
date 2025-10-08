@@ -1,0 +1,10 @@
+\babel@toc {ukrainian}{}\relax 
+\contentsline {section}{\numberline {1}Результати}{2}{section.1}%
+\contentsline {section}{\numberline {2}Скриншоти результатів}{3}{section.2}%
+\contentsline {section}{\numberline {3}Висновки}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Порівняння Пропускної Здатності}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Реалізація Технічних Вимог}{4}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Код}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Clients}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}In-memory Server}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}DB Server}{9}{subsection.4.3}%
