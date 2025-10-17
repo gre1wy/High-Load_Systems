@@ -1,0 +1,62 @@
+# docker-compose.yml
+services:
+  hz-node1:
+    image: hazelcast/hazelcast:5.4.0
+    container_name: hz-node1
+    volumes:
+      - ./hazelcast.yaml:/opt/hazelcast/config/hazelcast.yaml
+    environment:
+      HAZELCAST_CONFIG: /opt/hazelcast/config/hazelcast.yaml
+    ports:
+      - "5701:5701"
+    networks:
+      - hazelcast-network
+
+  hz-node2:
+    image: hazelcast/hazelcast:5.4.0
+    container_name: hz-node2
+    volumes:
+      - ./hazelcast.yaml:/opt/hazelcast/config/hazelcast.yaml
+    environment:
+      HAZELCAST_CONFIG: /opt/hazelcast/config/hazelcast.yaml
+
+    ports:
+      - "5702:5701"
+    networks:
+      - hazelcast-network
+
+  hz-node3:
+    image: hazelcast/hazelcast:5.4.0
+    container_name: hz-node3
+    volumes:
+      - ./hazelcast.yaml:/opt/hazelcast/config/hazelcast.yaml
+    environment:
+      HAZELCAST_CONFIG: /opt/hazelcast/config/hazelcast.yaml
+    ports:
+      - "5703:5701"
+    networks:
+      - hazelcast-network
+
+  management-center:
+    image: hazelcast/management-center:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - MC_DEFAULT_CLUSTER=lab-cluster
+      - MC_DEFAULT_CLUSTER_MEMBERS=hz-node1,hz-node2,hz-node3
+    networks:
+      - hazelcast-network
+      
+  go-client:
+    build: .
+    container_name: go-client
+    depends_on:
+      - hz-node1
+      - hz-node2
+      - hz-node3
+    networks:
+      - hazelcast-network
+
+networks:
+  hazelcast-network:
+    driver: bridge

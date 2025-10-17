@@ -1,0 +1,15 @@
+# hazelcast.yaml
+hazelcast:
+  cluster-name: lab-cluster
+  network:
+    join:
+      tcp-ip:
+        enabled: true
+        member-list:
+          - hz-node1
+          - hz-node2
+          - hz-node3
+
+  cp-subsystem:        
+    cp-member-count: 3
+    group-size: 3
