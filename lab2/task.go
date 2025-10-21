@@ -12,7 +12,7 @@ import (
 
 const (
 	NumGoroutines        = 10
-	IncrementsPerRoutine = 10000
+	IncrementsPerRoutine = 1000
 	ExpectedValue        = NumGoroutines * IncrementsPerRoutine
 )
 
